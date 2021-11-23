@@ -1,0 +1,38 @@
+{
+  "name": "beer-bot-cloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/jest": "^27.0.3",
+    "babel-jest": "^27.3.1",
+    "jest": "^27.3.1",
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "test:unit": "jest -c jest.unit.js",
+    "test:api": "jest -c jest.api.js",
+    "copydeps": "./copy-deps.sh",
+    "prebuild": "npm run copydeps",
+    "build": "./compile.sh",
+    "predeploy": "npm run build && npm run test:unit",
+    "deploy:api": "gcloud functions deploy beer-handler-qa --entry-point handler --runtime nodejs14 --trigger-http --allow-unauthenticated --source=built/api/",
+    "deploy:client": "",
+    "deploy": "npm run deploy:api && npm run deploy:client",
+    "deploy:prod": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobwaller/beer-bot-cloud.git"
+  },
+  "author": "Jacob Waller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jacobwaller/beer-bot-cloud/issues"
+  },
+  "homepage": "https://github.com/jacobwaller/beer-bot-cloud#readme",
+  "dependencies": {}
+}

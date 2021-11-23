@@ -1,3 +1,9 @@
+# Manually added
+built/
+common_lib/
+key.json
+.DS_Store
+
 # Logs
 logs
 *.log
