@@ -3,6 +3,7 @@ built/
 common_lib/
 key.json
 .DS_Store
+.firebase
 
 # Logs
 logs

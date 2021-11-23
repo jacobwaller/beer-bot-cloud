@@ -1,11 +1,12 @@
+import * as functions from 'firebase-functions';
 import { Firestore } from '@google-cloud/firestore';
 import { Base64 } from 'js-base64';
 import {
   CreateDeliveryRequest,
   DeliveryDomainModel,
   GetDeliveryResponse,
-} from './common_lib/delivery';
-import { GetOptionsResponse, SetOptionsRequest } from './common_lib/option';
+} from './delivery';
+import { GetOptionsResponse, SetOptionsRequest } from './option';
 import { v4 } from 'uuid';
 
 let _db: Firestore;
@@ -15,7 +16,8 @@ const optionsName = 'options';
 
 const db = () => {
   if (_db === undefined) {
-    const tokenInfo = Base64.decode(process.env.FIRESTORE_TOKEN || '');
+    const tokenInfo = Base64.decode(functions.config().firestore.key);
+    // const tokenInfo = Base64.decode(process.env.FIRESTORE_TOKEN || '');
     const tokenObject = JSON.parse(tokenInfo);
     // const tokenObject = require('./key.json');
     const clientEmail = tokenObject.client_email;
