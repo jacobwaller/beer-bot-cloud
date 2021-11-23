@@ -4,8 +4,8 @@ import {
   CreateDeliveryRequest,
   DeliveryDomainModel,
   GetDeliveryResponse,
-} from './common_lib/src/delivery';
-import { GetOptionsResponse, SetOptionsRequest } from './common_lib/src/option';
+} from './common_lib/delivery';
+import { GetOptionsResponse, SetOptionsRequest } from './common_lib/option';
 import { v4 } from 'uuid';
 
 let _db: Firestore;

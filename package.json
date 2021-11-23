@@ -22,7 +22,8 @@
     "deploy:api": "gcloud functions deploy beer-handler-qa --entry-point handler --runtime nodejs14 --trigger-http --allow-unauthenticated --source=built/api/",
     "deploy:client": "",
     "deploy": "npm run deploy:api && npm run deploy:client",
-    "deploy:prod": ""
+    "deploy:prod": "",
+    "postinstall": "lerna bootstrap && npm run build"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,5 @@
   "bugs": {
     "url": "https://github.com/jacobwaller/beer-bot-cloud/issues"
   },
-  "homepage": "https://github.com/jacobwaller/beer-bot-cloud#readme",
-  "dependencies": {}
+  "homepage": "https://github.com/jacobwaller/beer-bot-cloud#readme"
 }

@@ -6,12 +6,9 @@ import {
   setDeliveredEntry,
   setOptionsEntries,
 } from './dbHandler';
-import {
-  IndexValidator,
-  UuidValidator,
-} from './common_lib/src/simpleValidators';
-import { GetDeliveryRequestValidator } from './common_lib/src/delivery';
-import { SetOptionsValidator } from './common_lib/src/option';
+import { IndexValidator, UuidValidator } from './common_lib/simpleValidators';
+import { GetDeliveryRequestValidator } from './common_lib/delivery';
+import { SetOptionsValidator } from './common_lib/option';
 
 export const getDelivery: HttpFunction = async (req, res) => {
   const strIndex = req.path.split('/')[2];
